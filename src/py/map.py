@@ -51,14 +51,14 @@ MAP_DATA = [
 class Map:
     def __init__(self, game):
         self.game = game
-        self.title_size = 100
+        self.title_size = 64  # Ajustado para corresponder perfeitamente aos 64x64 da textura
         
         lvl = getattr(self.game, 'current_level', 0) % len(MAP_DATA)
         self.mini_map = [row[:] for row in MAP_DATA[lvl]]
 
         self.world_map = {}
         self.files_map = {}
-        self.player_start = (2, 2)
+        self.player_start_pos = (2.5 * self.title_size, 2.5 * self.title_size)
         self.get_map()
 
     def get_map(self):
@@ -71,7 +71,7 @@ class Map:
                 elif value == 3:
                     self.files_map[(i, j)] = value
                 elif value == 4:
-                    self.player_start = (i + 0.5, j + 0.5)
+                    self.player_start_pos = ((i + 0.5) * self.title_size, (j + 0.5) * self.title_size)
         self.game.total_files = len(self.files_map)
 
     def is_wall(self, x, y):
