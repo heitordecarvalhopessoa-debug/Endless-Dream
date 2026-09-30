@@ -51,7 +51,7 @@ MAP_DATA = [
 class Map:
     def __init__(self, game):
         self.game = game
-        self.title_size = 64  # Ajustado para corresponder perfeitamente aos 64x64 da textura
+        self.title_size = 64
         
         lvl = getattr(self.game, 'current_level', 0) % len(MAP_DATA)
         self.mini_map = [row[:] for row in MAP_DATA[lvl]]
