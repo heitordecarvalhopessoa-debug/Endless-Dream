@@ -1,7 +1,7 @@
 require 'find'
 require 'pathname'
 
-puts "===  Analyzer ==="
+puts "=== Advanced Project Analyzer ==="
 total_lines = 0
 total_code_lines = 0
 total_comment_lines = 0
